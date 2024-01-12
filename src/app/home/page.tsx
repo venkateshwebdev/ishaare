@@ -27,7 +27,7 @@ const Home = () => {
                     </div>
                     <div className="">{"(3)"}</div>
                 </div>
-                <div className="flex flex-col gap-[20px] w-full h-full overflow-y-auto pb-[24px]">
+                <div className="flex flex-col gap-[40px] w-full h-full overflow-y-auto py-[32px]">
                     <MatchCard />
                     <MatchCard />
                     <MatchCard />     

@@ -2,11 +2,15 @@
 import Image from "next/image";
 import { abhaya } from "../fonts";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 const MatchCard = () => {
+    const searchParams = useSearchParams()
+    const params = searchParams.get("s")
     const [uncover, setUncover] = useState(true)
     return (
-        <div className={`max-h-[250px] max-md:h-[149px] flex relative w-full rounded-[20px] border-[1.5px] border-[#EE9813] shadow-md transition-all duration-200 ${uncover ? "bg-[#EE981320]" : "bg-[#FFdfd1]"}`}>
-            <div className={`h-full w-[38%] max-md:w-[47%] rounded-[20px]  ${uncover ? "bg-[#fffcf1]" : "bg-[#ffeee7]"} relative overflow-hidden`}>
+        <div className={`max-h-[250px] max-md:h-[149px] flex relative w-full rounded-[20px] border-[1.5px] border-[#EE9813] shadow-md transition-all duration-200 ${uncover ? "bg-[#FAF3DC]" : "bg-[#FFdfd1]"}`}  >
+            {params == "received" && <div className="after:content-[''] absolute right-0 -top-[32px] rounded-[12px] rounded-b-none bg-[#4cbebe] h-[48px] w-[197px] after:text-red-500 text-white text-[14px] flex items-center justify-center"> <Image src="/heart-fill.svg" alt="" height={20} width={20} /> Vidhi loved your profile</div>
+            }            <div className={`h-full w-[38%] max-md:w-[47%] rounded-[20px]  ${uncover ? "bg-[#fffcf1]" : "bg-[#ffeee7]"} relative overflow-hidden`}>
                 <Image className="object-cover h-full w-[202px] max-md:w-[127px] absolute" src="/Golden Farem 1.svg" alt="" width={202} height={240} />
                 <div className="h-full p-4 max-md:p-1 relative flex  flex-col items-center justify-center">
                     <Image className="h-full p-3 max-md:p-2" src="/Vector.png" alt="" fill={true} />
@@ -34,7 +38,7 @@ const MatchCard = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-[17px] px-[19px] z-30 flex flex-col gap-3">
+            <div className={`py-[17px] px-[19px] z-30 flex flex-col gap-3 rounded-[20px]  ${uncover ? "bg-[#FAF3DC]" : "bg-[#FFdfd1]"}`}>
                 <div className="flex w-full gap-[6px] text-xs max-md:text-[8px] items-end justify-end "><span>New Jersy</span>  <Image src="/usa.png" alt="" className="max-md:h-4 w-5" width={30} height={20} /> </div>
                 <div className="bg-[#fff] border-[0.5px] rounded-[20px] border-[#c4a204] w-full px-3 flex flex-col py-1 gap-1">
                     <div className="text-[15px] max-md:text-[10px] text-[#6b4500] text-left">What matters to you the most in a partner?</div>
